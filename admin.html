@@ -8,485 +8,192 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #0d1b3e;
-      --navy-light: #162554;
-      --orange: #f97316;
-      --orange-dark: #ea6a08;
-      --white: #ffffff;
-      --off: #f8f9fb;
-      --gray: #6b7280;
-      --gray-light: #e5e7eb;
-      --green: #16a34a;
-      --red: #dc2626;
-      --success: #22c55e;
-      --error: #ef4444;
-      --radius: 12px;
-      --font-d: 'Bebas Neue', sans-serif;
-      --font-c: 'Barlow Condensed', sans-serif;
-      --font-b: 'Barlow', sans-serif;
+      --navy:#0d1b3e; --navy-light:#162554; --orange:#f97316; --orange-dark:#ea6a08;
+      --white:#fff; --off:#f8f9fb; --gray:#6b7280; --gray-light:#e5e7eb;
+      --green:#16a34a; --red:#dc2626; --success:#22c55e; --error:#ef4444;
+      --radius:12px; --font-d:'Bebas Neue',sans-serif;
+      --font-c:'Barlow Condensed',sans-serif; --font-b:'Barlow',sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-b); background: var(--off); color: var(--navy); min-height: 100vh; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-b);background:var(--off);color:var(--navy);min-height:100vh;}
 
-    /* ===== LOGIN ===== */
-    #loginScreen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e3a6e 100%);
-      padding: 1.5rem;
-    }
-    .login-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-    }
-    .login-logo {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--orange);
-      margin: 0 auto 1.5rem;
-      display: block;
-    }
-    .login-title {
-      font-family: var(--font-d);
-      font-size: 2.2rem;
-      color: var(--white);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.3rem;
-    }
-    .login-sub { color: rgba(255,255,255,0.5); font-size: 0.88rem; margin-bottom: 2rem; font-family: var(--font-c); letter-spacing: 0.08em; text-transform: uppercase; }
-    .login-field {
-      width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1.5px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      padding: 0.9rem 1.2rem;
-      color: var(--white);
-      font-family: var(--font-b);
-      font-size: 1rem;
-      outline: none;
-      text-align: center;
-      letter-spacing: 0.2em;
-      transition: border-color 0.2s;
-      margin-bottom: 1rem;
-    }
-    .login-field:focus { border-color: var(--orange); }
-    .login-field::placeholder { color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
-    .btn-login {
-      width: 100%;
-      background: var(--orange);
-      color: white;
-      font-family: var(--font-c);
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.9rem;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-login:hover { background: var(--orange-dark); transform: translateY(-1px); }
-    .login-error {
-      color: #fca5a5;
-      font-size: 0.85rem;
-      margin-top: 0.75rem;
-      display: none;
-      font-family: var(--font-c);
-      letter-spacing: 0.05em;
-    }
-    .login-hint { color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-top: 1rem; font-style: italic; }
+    /* LOGIN */
+    #loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 60%,#1e3a6e 100%);padding:1.5rem;}
+    .login-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:3rem 2.5rem;width:100%;max-width:400px;text-align:center;backdrop-filter:blur(10px);}
+    .login-logo{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--orange);margin:0 auto 1.5rem;display:block;}
+    .login-title{font-family:var(--font-d);font-size:2.2rem;color:var(--white);letter-spacing:0.05em;margin-bottom:0.3rem;}
+    .login-sub{color:rgba(255,255,255,0.5);font-size:0.88rem;margin-bottom:2rem;font-family:var(--font-c);letter-spacing:0.08em;text-transform:uppercase;}
+    .login-field{width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:0.9rem 1.2rem;color:var(--white);font-family:var(--font-b);font-size:1rem;outline:none;text-align:center;letter-spacing:0.2em;transition:border-color 0.2s;margin-bottom:1rem;}
+    .login-field:focus{border-color:var(--orange);}
+    .login-field::placeholder{color:rgba(255,255,255,0.3);letter-spacing:0.05em;}
+    .btn-login{width:100%;background:var(--orange);color:white;font-family:var(--font-c);font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s;}
+    .btn-login:hover{background:var(--orange-dark);transform:translateY(-1px);}
+    .login-error{color:#fca5a5;font-size:0.85rem;margin-top:0.75rem;display:none;font-family:var(--font-c);letter-spacing:0.05em;}
+    .login-hint{color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:1rem;font-style:italic;}
 
-    /* ===== ADMIN APP ===== */
-    #adminApp { display: none; }
+    /* APP */
+    #adminApp{display:none;}
+    .admin-header{background:var(--navy);padding:1rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+    .admin-header-inner{max-width:960px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .admin-brand{display:flex;align-items:center;gap:0.75rem;}
+    .admin-brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);}
+    .admin-brand-text{font-family:var(--font-c);color:var(--white);font-size:0.9rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+    .admin-brand-text span{color:rgba(255,255,255,0.5);display:block;font-size:0.72rem;font-weight:400;}
+    .btn-logout{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-family:var(--font-c);font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:6px;cursor:pointer;transition:all 0.2s;}
+    .btn-logout:hover{background:rgba(255,255,255,0.15);color:white;}
+    .btn-view-site{background:var(--orange);border:none;color:white;font-family:var(--font-c);font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:6px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;}
+    .btn-view-site:hover{background:var(--orange-dark);}
+    .admin-main{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem;}
 
-    .admin-header {
-      background: var(--navy);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-    }
-    .admin-header-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .admin-brand { display: flex; align-items: center; gap: 0.75rem; }
-    .admin-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--orange); }
-    .admin-brand-text { font-family: var(--font-c); color: var(--white); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-    .admin-brand-text span { color: rgba(255,255,255,0.5); display: block; font-size: 0.72rem; font-weight: 400; }
-    .btn-logout {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.7);
-      font-family: var(--font-c);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-logout:hover { background: rgba(255,255,255,0.15); color: white; }
-    .btn-view-site {
-      background: var(--orange);
-      border: none;
-      color: white;
-      font-family: var(--font-c);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-view-site:hover { background: var(--orange-dark); }
+    /* CARDS */
+    .admin-card{background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius);margin-bottom:2rem;overflow:hidden;box-shadow:0 2px 16px rgba(13,27,62,0.06);}
+    .card-head{background:var(--navy);padding:1.1rem 1.5rem;display:flex;align-items:center;gap:0.75rem;}
+    .card-head-icon{font-size:1.3rem;}
+    .card-head h2{font-family:var(--font-c);font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);flex:1;}
+    .card-badge{font-family:var(--font-c);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:0.2rem 0.6rem;border-radius:4px;}
+    .card-body{padding:1.5rem;}
 
-    .admin-main { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    /* FORM */
+    .field-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.2rem;}
+    .field-group label{font-family:var(--font-c);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+    .field-group input,.field-group select,.field-group textarea{background:var(--off);border:1.5px solid var(--gray-light);border-radius:8px;padding:0.7rem 1rem;font-family:var(--font-b);font-size:0.97rem;color:var(--navy);outline:none;transition:border-color 0.2s;width:100%;}
+    .field-group input:focus,.field-group select:focus,.field-group textarea:focus{border-color:var(--orange);background:white;}
+    .field-group textarea{resize:vertical;min-height:80px;}
+    .fields-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .fields-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+    .fields-row-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.75rem;}
 
-    /* Cards */
-    .admin-card {
-      background: var(--white);
-      border: 1px solid var(--gray-light);
-      border-radius: var(--radius);
-      margin-bottom: 2rem;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(13,27,62,0.06);
-    }
-    .card-head {
-      background: var(--navy);
-      padding: 1.1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .card-head-icon { font-size: 1.3rem; }
-    .card-head h2 {
-      font-family: var(--font-c);
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white);
-      flex: 1;
-    }
-    .card-head .card-badge {
-      font-family: var(--font-c);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.6);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-    }
-    .card-body { padding: 1.5rem; }
+    /* SCORE */
+    .score-row{display:flex;align-items:center;gap:1rem;background:var(--off);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.2rem;border:1.5px solid var(--gray-light);}
+    .score-team{display:flex;align-items:center;gap:0.6rem;flex:1;}
+    .dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+    .dot.vert{background:var(--green);box-shadow:0 0 6px rgba(22,163,74,0.5);}
+    .dot.rouge{background:var(--red);box-shadow:0 0 6px rgba(220,38,38,0.5);}
+    .team-label{font-family:var(--font-c);font-size:1rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);}
+    .score-input{width:70px!important;text-align:center;font-family:var(--font-d);font-size:1.8rem!important;padding:0.4rem!important;border-radius:8px;border:1.5px solid var(--gray-light)!important;background:white!important;color:var(--navy);outline:none;}
+    .score-input:focus{border-color:var(--orange)!important;}
+    .score-dash{font-family:var(--font-d);font-size:1.5rem;color:var(--gray);}
 
-    /* Form elements */
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .field-group label {
-      font-family: var(--font-c);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray);
-      font-weight: 700;
-    }
-    .field-group input, .field-group select {
-      background: var(--off);
-      border: 1.5px solid var(--gray-light);
-      border-radius: 8px;
-      padding: 0.7rem 1rem;
-      font-family: var(--font-b);
-      font-size: 0.97rem;
-      color: var(--navy);
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-    }
-    .field-group input:focus, .field-group select:focus { border-color: var(--orange); background: white; }
+    /* STATUS */
+    .status-row{display:flex;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+    .status-btn{display:flex;align-items:center;gap:0.5rem;padding:0.55rem 1.1rem;border-radius:8px;border:1.5px solid var(--gray-light);background:white;font-family:var(--font-c);font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;color:var(--gray);}
+    .status-btn:hover{border-color:var(--navy);color:var(--navy);}
+    .status-btn.selected.fini{background:rgba(34,197,94,0.1);border-color:var(--green);color:var(--green);}
+    .status-btn.selected.nul{background:rgba(107,114,128,0.1);border-color:var(--gray);color:var(--gray);}
 
-    .fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .fields-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    /* JOUEURS CHIPS */
+    .chips-area{display:flex;flex-wrap:wrap;gap:0.5rem;min-height:40px;margin-bottom:0.5rem;}
+    .chip{display:inline-flex;align-items:center;gap:0.4rem;background:var(--navy);color:white;font-family:var(--font-c);font-size:0.82rem;font-weight:700;letter-spacing:0.04em;padding:0.3rem 0.7rem 0.3rem 0.9rem;border-radius:50px;}
+    .chip.passeur{background:#1e3a6e;}
+    .chip-del{cursor:pointer;opacity:0.6;font-size:0.9rem;margin-left:0.2rem;}
+    .chip-del:hover{opacity:1;}
+    .add-player-row{display:flex;gap:0.5rem;align-items:center;}
+    .add-player-row input{flex:1;background:var(--off);border:1.5px solid var(--gray-light);border-radius:8px;padding:0.55rem 0.9rem;font-family:var(--font-b);font-size:0.92rem;color:var(--navy);outline:none;}
+    .add-player-row input:focus{border-color:var(--orange);background:white;}
+    .btn-chip-add{background:var(--navy);color:white;border:none;border-radius:8px;padding:0.55rem 1rem;font-family:var(--font-c);font-size:0.85rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+    .btn-chip-add:hover{background:var(--navy-light);}
+    .joueurs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;}
+    .joueurs-label{font-family:var(--font-c);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:0.6rem;}
+    .joueurs-label.vert-label{color:var(--green);}
+    .joueurs-label.rouge-label{color:var(--red);}
+    .joueurs-label.pass-label{color:#64748b;}
 
-    /* Score input */
-    .score-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--off);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.2rem;
-      border: 1.5px solid var(--gray-light);
-    }
-    .score-team { display: flex; align-items: center; gap: 0.6rem; flex: 1; }
-    .dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
-    .dot.vert { background: var(--green); box-shadow: 0 0 6px rgba(22,163,74,0.5); }
-    .dot.rouge { background: var(--red); box-shadow: 0 0 6px rgba(220,38,38,0.5); }
-    .team-label { font-family: var(--font-c); font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--navy); }
-    .score-input {
-      width: 70px !important;
-      text-align: center;
-      font-family: var(--font-d);
-      font-size: 1.8rem !important;
-      padding: 0.4rem !important;
-      border-radius: 8px;
-      border: 1.5px solid var(--gray-light) !important;
-      background: white !important;
-      color: var(--navy);
-      outline: none;
-    }
-    .score-input:focus { border-color: var(--orange) !important; }
-    .score-dash { font-family: var(--font-d); font-size: 1.5rem; color: var(--gray); }
+    /* RÉSULTATS LIST */
+    .results-list{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;}
+    .result-item{background:var(--off);border:1px solid var(--gray-light);border-radius:10px;overflow:hidden;}
+    .result-item-header{padding:0.75rem 1.1rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;transition:background 0.2s;}
+    .result-item-header:hover{background:#f0f2f7;}
+    .result-date-tag{font-family:var(--font-c);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);min-width:110px;}
+    .result-score-display{font-family:var(--font-d);font-size:1.2rem;color:var(--navy);display:flex;align-items:center;gap:0.5rem;flex:1;}
+    .result-status-tag{font-family:var(--font-c);font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;}
+    .result-status-tag.fini{background:rgba(34,197,94,0.1);color:var(--green);}
+    .result-status-tag.nul{background:rgba(107,114,128,0.1);color:var(--gray);}
+    .result-expand{font-size:0.8rem;color:var(--gray);margin-left:auto;}
+    .btn-delete{background:none;border:1px solid var(--gray-light);color:var(--gray);width:30px;height:30px;border-radius:6px;cursor:pointer;font-size:0.85rem;transition:all 0.2s;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .btn-delete:hover{background:#fee2e2;border-color:var(--error);color:var(--error);}
+    .result-item-body{padding:1rem 1.1rem;border-top:1px solid var(--gray-light);background:white;display:none;}
+    .result-item-body.open{display:block;}
+    .result-stats-row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:0.75rem;}
+    .stat-group{flex:1;min-width:160px;}
+    .stat-group-label{font-family:var(--font-c);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:0.4rem;}
+    .stat-group-label.vert{color:var(--green);}
+    .stat-group-label.rouge{color:var(--red);}
+    .stat-group-label.pass{color:#64748b;}
+    .stat-names{font-size:0.88rem;color:var(--navy);}
+    .stat-names em{color:var(--gray);font-style:normal;}
+    .btn-edit-result{background:var(--off);border:1px solid var(--gray-light);color:var(--navy);font-family:var(--font-c);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.85rem;border-radius:6px;cursor:pointer;transition:all 0.2s;}
+    .btn-edit-result:hover{background:var(--navy);color:white;border-color:var(--navy);}
 
-    /* Résultat status */
-    .status-row { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
-    .status-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.1rem;
-      border-radius: 8px;
-      border: 1.5px solid var(--gray-light);
-      background: white;
-      font-family: var(--font-c);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--gray);
-    }
-    .status-btn:hover { border-color: var(--navy); color: var(--navy); }
-    .status-btn.selected.fini { background: rgba(34,197,94,0.1); border-color: var(--green); color: var(--green); }
-    .status-btn.selected.nul { background: rgba(107,114,128,0.1); border-color: var(--gray); color: var(--gray); }
+    /* EDIT MODAL */
+    .modal-overlay{position:fixed;inset:0;background:rgba(13,27,62,0.7);z-index:1000;display:none;align-items:center;justify-content:center;padding:1rem;}
+    .modal-overlay.open{display:flex;}
+    .modal-box{background:white;border-radius:16px;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.3);}
+    .modal-head{background:var(--navy);padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .modal-head h3{font-family:var(--font-c);font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:white;}
+    .modal-close{background:none;border:none;color:rgba(255,255,255,0.6);font-size:1.4rem;cursor:pointer;line-height:1;}
+    .modal-close:hover{color:white;}
+    .modal-body{padding:1.5rem;}
 
-    /* Liste des résultats */
-    .results-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
-    .result-item {
-      background: var(--off);
-      border: 1px solid var(--gray-light);
-      border-radius: 10px;
-      padding: 0.85rem 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .result-item-info { display: flex; align-items: center; gap: 1rem; flex: 1; }
-    .result-date-tag {
-      font-family: var(--font-c);
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gray);
-      min-width: 110px;
-    }
-    .result-score-display {
-      font-family: var(--font-d);
-      font-size: 1.2rem;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .result-status-tag {
-      font-family: var(--font-c);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-    }
-    .result-status-tag.fini { background: rgba(34,197,94,0.1); color: var(--green); }
-    .result-status-tag.nul { background: rgba(107,114,128,0.1); color: var(--gray); }
-    .btn-delete {
-      background: none;
-      border: 1px solid var(--gray-light);
-      color: var(--gray);
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .btn-delete:hover { background: #fee2e2; border-color: var(--error); color: var(--error); }
+    /* CALENDRIER */
+    .cal-entry{background:var(--off);border:1px solid var(--gray-light);border-radius:10px;padding:0.85rem 1.1rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+    .cal-input{background:white;border:1.5px solid var(--gray-light);border-radius:8px;padding:0.5rem 0.75rem;font-family:var(--font-b);font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+    .cal-input:focus{border-color:var(--orange);}
+    .cal-input.wide{flex:1;min-width:160px;}
+    .cal-input.short{width:90px;}
 
-    /* Save button */
-    .btn-save {
-      background: var(--orange);
-      color: white;
-      font-family: var(--font-c);
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      width: 100%;
-    }
-    .btn-save:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(249,115,22,0.3); }
+    /* DIVIDERS */
+    .divider{height:1px;background:var(--gray-light);margin:1.5rem 0;}
+    .section-sub-label{font-family:var(--font-c);font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-sub-label::before{content:'';display:inline-block;width:16px;height:2px;background:var(--orange);}
 
-    .btn-add-result {
-      background: var(--navy);
-      color: white;
-      font-family: var(--font-c);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.7rem 1.5rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      width: 100%;
-      margin-top: 0.25rem;
-    }
-    .btn-add-result:hover { background: #1e3a6e; }
+    /* BUTTONS */
+    .btn-save{background:var(--orange);color:white;font-family:var(--font-c);font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.85rem 2rem;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s;width:100%;}
+    .btn-save:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,0.3);}
+    .btn-add{background:var(--navy);color:white;font-family:var(--font-c);font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.7rem 1.5rem;border-radius:8px;border:none;cursor:pointer;transition:all 0.2s;width:100%;margin-top:0.25rem;margin-bottom:1rem;}
+    .btn-add:hover{background:#1e3a6e;}
 
-    /* Divider */
-    .divider { height: 1px; background: var(--gray-light); margin: 1.5rem 0; }
-    .section-sub-label {
-      font-family: var(--font-c);
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--orange);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .section-sub-label::before { content: ''; display: inline-block; width: 16px; height: 2px; background: var(--orange); }
+    /* PREVIEW BAR */
+    .preview-bar{background:rgba(249,115,22,0.06);border:1.5px dashed rgba(249,115,22,0.3);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+    .preview-bar p{font-size:0.88rem;color:var(--gray);}
+    .preview-bar strong{color:var(--navy);}
 
-    /* Toast notification */
-    #toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: var(--navy);
-      color: white;
-      font-family: var(--font-c);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      padding: 0.85rem 2rem;
-      border-radius: 50px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-      z-index: 9999;
-      white-space: nowrap;
-      border-left: 4px solid var(--orange);
-    }
-    #toast.show { transform: translateX(-50%) translateY(0); }
-    #toast.success { border-left-color: var(--success); }
-    #toast.error { border-left-color: var(--error); }
+    /* TOAST */
+    #toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:white;font-family:var(--font-c);font-size:0.9rem;font-weight:700;letter-spacing:0.06em;padding:0.85rem 2rem;border-radius:50px;box-shadow:0 8px 32px rgba(0,0,0,0.2);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);z-index:9999;white-space:nowrap;border-left:4px solid var(--orange);}
+    #toast.show{transform:translateX(-50%) translateY(0);}
+    #toast.success{border-left-color:var(--success);}
+    #toast.error-t{border-left-color:var(--error);}
 
-    /* Preview panel */
-    .preview-bar {
-      background: rgba(249,115,22,0.06);
-      border: 1.5px dashed rgba(249,115,22,0.3);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .preview-bar-icon { font-size: 1.2rem; flex-shrink: 0; }
-    .preview-bar p { font-size: 0.88rem; color: var(--gray); }
-    .preview-bar strong { color: var(--navy); }
-
-    @media (max-width: 600px) {
-      .fields-row, .fields-row-3 { grid-template-columns: 1fr; }
-      .score-row { flex-wrap: wrap; }
-      .admin-main { padding: 1.5rem 1rem; }
-      .result-item { flex-wrap: wrap; }
-      .result-item-info { flex-wrap: wrap; }
+    @media(max-width:600px){
+      .fields-row,.fields-row-3,.fields-row-4{grid-template-columns:1fr;}
+      .score-row{flex-wrap:wrap;}
+      .admin-main{padding:1.5rem 1rem;}
+      .joueurs-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
 
-<!-- ===== ÉCRAN DE CONNEXION ===== -->
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-card">
-    <img
-      src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_160,h_160,c_fill,r_max/v1773712160/WhatsApp_Image_2025-08-13_at_3.56.59_PM_i4ih6p.jpg"
-      alt="AWF Logo"
-      class="login-logo"
-    />
+    <img src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_160,h_160,c_fill,r_max/v1773712160/WhatsApp_Image_2025-08-13_at_3.56.59_PM_i4ih6p.jpg" alt="AWF" class="login-logo"/>
     <h1 class="login-title">AWF ADMIN</h1>
     <p class="login-sub">Espace de gestion — Réservé au bureau</p>
-    <input
-      type="password"
-      id="loginInput"
-      class="login-field"
-      placeholder="Mot de passe"
-      autocomplete="off"
-      onkeydown="if(event.key==='Enter') doLogin()"
-    />
+    <input type="password" id="loginInput" class="login-field" placeholder="Mot de passe" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()"/>
     <button class="btn-login" onclick="doLogin()">Connexion →</button>
     <p class="login-error" id="loginError">❌ Mot de passe incorrect</p>
     <p class="login-hint">Contactez le président pour obtenir l'accès</p>
   </div>
 </div>
 
-<!-- ===== APPLICATION ADMIN ===== -->
+<!-- ADMIN APP -->
 <div id="adminApp">
-
   <header class="admin-header">
     <div class="admin-header-inner">
       <div class="admin-brand">
-        <img
-          src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_80,h_80,c_fill,r_max/v1773712160/WhatsApp_Image_2025-08-13_at_3.56.59_PM_i4ih6p.jpg"
-          alt="AWF"
-        />
-        <div class="admin-brand-text">
-          AWF Admin
-          <span>Gestion des matchs</span>
-        </div>
+        <img src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_80,h_80,c_fill,r_max/v1773712160/WhatsApp_Image_2025-08-13_at_3.56.59_PM_i4ih6p.jpg" alt="AWF"/>
+        <div class="admin-brand-text">AWF Admin<span>Gestion des matchs</span></div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <a href="index.html" target="_blank" class="btn-view-site">Voir le site ↗</a>
@@ -496,13 +203,12 @@
   </header>
 
   <main class="admin-main">
-
     <div class="preview-bar">
-      <span class="preview-bar-icon">💡</span>
-      <p>Remplissez les champs ci-dessous, puis cliquez <strong>"Enregistrer"</strong>. Les informations s'affichent automatiquement sur le site.</p>
+      <span style="font-size:1.2rem;">💡</span>
+      <p>Remplissez les champs et cliquez <strong>"Enregistrer"</strong>. Les informations s'affichent automatiquement sur le site.</p>
     </div>
 
-    <!-- ===== PROCHAIN MATCH ===== -->
+    <!-- PROCHAIN MATCH -->
     <div class="admin-card">
       <div class="card-head">
         <span class="card-head-icon">⏳</span>
@@ -513,300 +219,458 @@
         <div class="fields-row-3">
           <div class="field-group">
             <label>📅 Date du match</label>
-            <input type="text" id="pm-date" placeholder="ex: Dimanche 30 Mars 2025" />
+            <input type="text" id="pm-date" placeholder="ex: Dimanche 30 Mars 2025"/>
           </div>
           <div class="field-group">
             <label>⏰ Heure</label>
-            <input type="text" id="pm-heure" placeholder="ex: 16h00" />
+            <input type="text" id="pm-heure" placeholder="ex: 16h00"/>
           </div>
           <div class="field-group">
             <label>📍 Lieu</label>
-            <input type="text" id="pm-lieu" placeholder="ex: Terrain de Ahala Zamden" />
+            <input type="text" id="pm-lieu" placeholder="ex: Terrain de Ahala Zamden"/>
           </div>
         </div>
-        <button class="btn-save" onclick="saveProchainMatch()">
-          ✅ Enregistrer le prochain match
-        </button>
+        <button class="btn-save" onclick="saveProchainMatch()">✅ Enregistrer le prochain match</button>
       </div>
     </div>
 
-    <!-- ===== AJOUTER UN RÉSULTAT ===== -->
+    <!-- AJOUTER RÉSULTAT -->
     <div class="admin-card">
       <div class="card-head">
         <span class="card-head-icon">⚽</span>
         <h2>Ajouter un résultat</h2>
-        <span class="card-badge">Dimanche dernier</span>
+        <span class="card-badge">Match du dimanche</span>
       </div>
       <div class="card-body">
 
         <div class="field-group">
           <label>📅 Date du match joué</label>
-          <input type="text" id="res-date" placeholder="ex: Dim. 23 Mars 2025" />
+          <input type="text" id="res-date" placeholder="ex: Dim. 23 Mars 2025"/>
         </div>
 
-        <div class="section-sub-label">Score du match</div>
-
+        <div class="section-sub-label">Score</div>
         <div class="score-row">
-          <div class="score-team">
-            <span class="dot vert"></span>
-            <span class="team-label">Les Verts</span>
-          </div>
-          <input type="number" id="score-vert" class="score-input" min="0" max="99" value="0" />
+          <div class="score-team"><span class="dot vert"></span><span class="team-label">Les Verts</span></div>
+          <input type="number" id="score-vert" class="score-input" min="0" max="99" value="0"/>
           <span class="score-dash">—</span>
-          <input type="number" id="score-rouge" class="score-input" min="0" max="99" value="0" />
-          <div class="score-team" style="flex-direction:row-reverse;">
-            <span class="dot rouge"></span>
-            <span class="team-label">Les Rouges</span>
-          </div>
+          <input type="number" id="score-rouge" class="score-input" min="0" max="99" value="0"/>
+          <div class="score-team" style="flex-direction:row-reverse;"><span class="dot rouge"></span><span class="team-label">Les Rouges</span></div>
         </div>
 
-        <div class="section-sub-label">Statut du match</div>
+        <div class="section-sub-label">Statut</div>
         <div class="status-row">
           <button class="status-btn fini selected" id="st-fini" onclick="selectStatus('fini')">✔ Terminé</button>
           <button class="status-btn nul" id="st-nul" onclick="selectStatus('nul')">⬛ Match nul</button>
         </div>
 
-        <button class="btn-add-result" onclick="addResult()">
-          ➕ Ajouter ce résultat à la liste
-        </button>
+        <div class="section-sub-label">⚽ Buteurs & 🎯 Passeurs</div>
 
-        <div class="divider"></div>
-
-        <div class="section-sub-label">Résultats enregistrés (les plus récents d'abord)</div>
-        <div class="results-list" id="resultsList">
-          <p style="color:var(--gray);font-size:0.88rem;text-align:center;padding:1rem;">Aucun résultat enregistré pour l'instant.</p>
+        <div class="joueurs-grid">
+          <!-- BUTEURS VERTS -->
+          <div>
+            <div class="joueurs-label vert-label">⚽ Buteurs — Les Verts</div>
+            <div class="chips-area" id="chips-but-vert"></div>
+            <div class="add-player-row">
+              <input type="text" id="inp-but-vert" placeholder="Prénom du buteur..." onkeydown="if(event.key==='Enter'){addChip('but-vert');event.preventDefault()}"/>
+              <button class="btn-chip-add" onclick="addChip('but-vert')">+ Ajouter</button>
+            </div>
+          </div>
+          <!-- BUTEURS ROUGES -->
+          <div>
+            <div class="joueurs-label rouge-label">⚽ Buteurs — Les Rouges</div>
+            <div class="chips-area" id="chips-but-rouge"></div>
+            <div class="add-player-row">
+              <input type="text" id="inp-but-rouge" placeholder="Prénom du buteur..." onkeydown="if(event.key==='Enter'){addChip('but-rouge');event.preventDefault()}"/>
+              <button class="btn-chip-add" onclick="addChip('but-rouge')">+ Ajouter</button>
+            </div>
+          </div>
+          <!-- PASSEURS VERTS -->
+          <div>
+            <div class="joueurs-label pass-label">🎯 Passeurs — Les Verts</div>
+            <div class="chips-area" id="chips-pass-vert"></div>
+            <div class="add-player-row">
+              <input type="text" id="inp-pass-vert" placeholder="Prénom du passeur..." onkeydown="if(event.key==='Enter'){addChip('pass-vert');event.preventDefault()}"/>
+              <button class="btn-chip-add" onclick="addChip('pass-vert')">+ Ajouter</button>
+            </div>
+          </div>
+          <!-- PASSEURS ROUGES -->
+          <div>
+            <div class="joueurs-label pass-label">🎯 Passeurs — Les Rouges</div>
+            <div class="chips-area" id="chips-pass-rouge"></div>
+            <div class="add-player-row">
+              <input type="text" id="inp-pass-rouge" placeholder="Prénom du passeur..." onkeydown="if(event.key==='Enter'){addChip('pass-rouge');event.preventDefault()}"/>
+              <button class="btn-chip-add" onclick="addChip('pass-rouge')">+ Ajouter</button>
+            </div>
+          </div>
         </div>
 
+        <button class="btn-add" onclick="addResult()">➕ Ajouter ce résultat à la liste</button>
+
         <div class="divider"></div>
-        <button class="btn-save" onclick="saveResults()">
-          ✅ Publier tous les résultats sur le site
-        </button>
+        <div class="section-sub-label">Résultats enregistrés — cliquez pour voir / modifier</div>
+        <div class="results-list" id="resultsList"></div>
+        <div class="divider"></div>
+        <button class="btn-save" onclick="saveResults()">✅ Publier tous les résultats sur le site</button>
       </div>
     </div>
 
-    <!-- ===== CALENDRIER ===== -->
+    <!-- CALENDRIER -->
     <div class="admin-card">
       <div class="card-head">
         <span class="card-head-icon">📅</span>
         <h2>Calendrier — Matchs à venir</h2>
-        <span class="card-badge">Section "Calendrier" du site</span>
+        <span class="card-badge">Section calendrier du site</span>
       </div>
       <div class="card-body">
-        <div id="calendarList">
-          <!-- Généré dynamiquement -->
-        </div>
-        <button class="btn-add-result" onclick="addCalendarEntry()" style="margin-bottom:1rem;">
-          ➕ Ajouter un match au calendrier
-        </button>
-        <button class="btn-save" onclick="saveCalendar()">
-          ✅ Enregistrer le calendrier
-        </button>
+        <div id="calendarList"></div>
+        <button class="btn-add" onclick="addCalendarEntry()">➕ Ajouter un match au calendrier</button>
+        <button class="btn-save" onclick="saveCalendar()">✅ Enregistrer le calendrier</button>
       </div>
     </div>
 
   </main>
 </div>
 
-<div id="toast">✅ Enregistré avec succès !</div>
+<!-- MODAL ÉDITION -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>✏️ Modifier le résultat</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label>📅 Date</label>
+        <input type="text" id="edit-date" placeholder="ex: Dim. 23 Mars 2025"/>
+      </div>
+      <div class="section-sub-label">Score</div>
+      <div class="score-row">
+        <div class="score-team"><span class="dot vert"></span><span class="team-label">Les Verts</span></div>
+        <input type="number" id="edit-vert" class="score-input" min="0" max="99" value="0"/>
+        <span class="score-dash">—</span>
+        <input type="number" id="edit-rouge" class="score-input" min="0" max="99" value="0"/>
+        <div class="score-team" style="flex-direction:row-reverse;"><span class="dot rouge"></span><span class="team-label">Les Rouges</span></div>
+      </div>
+      <div class="section-sub-label">Statut</div>
+      <div class="status-row">
+        <button class="status-btn fini selected" id="edit-st-fini" onclick="selectEditStatus('fini')">✔ Terminé</button>
+        <button class="status-btn nul" id="edit-st-nul" onclick="selectEditStatus('nul')">⬛ Nul</button>
+      </div>
+      <div class="section-sub-label">⚽ Buteurs & 🎯 Passeurs</div>
+      <div class="joueurs-grid">
+        <div>
+          <div class="joueurs-label vert-label">⚽ Buteurs Verts</div>
+          <div class="chips-area" id="edit-chips-but-vert"></div>
+          <div class="add-player-row">
+            <input type="text" id="edit-inp-but-vert" placeholder="Prénom..." onkeydown="if(event.key==='Enter'){addEditChip('but-vert');event.preventDefault()}"/>
+            <button class="btn-chip-add" onclick="addEditChip('but-vert')">+ Ajouter</button>
+          </div>
+        </div>
+        <div>
+          <div class="joueurs-label rouge-label">⚽ Buteurs Rouges</div>
+          <div class="chips-area" id="edit-chips-but-rouge"></div>
+          <div class="add-player-row">
+            <input type="text" id="edit-inp-but-rouge" placeholder="Prénom..." onkeydown="if(event.key==='Enter'){addEditChip('but-rouge');event.preventDefault()}"/>
+            <button class="btn-chip-add" onclick="addEditChip('but-rouge')">+ Ajouter</button>
+          </div>
+        </div>
+        <div>
+          <div class="joueurs-label pass-label">🎯 Passeurs Verts</div>
+          <div class="chips-area" id="edit-chips-pass-vert"></div>
+          <div class="add-player-row">
+            <input type="text" id="edit-inp-pass-vert" placeholder="Prénom..." onkeydown="if(event.key==='Enter'){addEditChip('pass-vert');event.preventDefault()}"/>
+            <button class="btn-chip-add" onclick="addEditChip('pass-vert')">+ Ajouter</button>
+          </div>
+        </div>
+        <div>
+          <div class="joueurs-label pass-label">🎯 Passeurs Rouges</div>
+          <div class="chips-area" id="edit-chips-pass-rouge"></div>
+          <div class="add-player-row">
+            <input type="text" id="edit-inp-pass-rouge" placeholder="Prénom..." onkeydown="if(event.key==='Enter'){addEditChip('pass-rouge');event.preventDefault()}"/>
+            <button class="btn-chip-add" onclick="addEditChip('pass-rouge')">+ Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <button class="btn-save" onclick="saveEditResult()" style="margin-top:0.5rem;">💾 Enregistrer les modifications</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast">✅ Enregistré !</div>
 
 <script>
-// ===== MOT DE PASSE =====
-// Pour changer le mot de passe, modifiez la valeur ci-dessous
 const PASSWORD = 'AWF2025';
 
-function doLogin() {
-  const val = document.getElementById('loginInput').value;
-  const err = document.getElementById('loginError');
-  if (val === PASSWORD) {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('adminApp').style.display = 'block';
+// ===== AUTH =====
+function doLogin(){
+  const v=document.getElementById('loginInput').value;
+  const e=document.getElementById('loginError');
+  if(v===PASSWORD){
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('adminApp').style.display='block';
     loadAll();
   } else {
-    err.style.display = 'block';
-    document.getElementById('loginInput').value = '';
-    document.getElementById('loginInput').focus();
-    setTimeout(() => err.style.display = 'none', 3000);
+    e.style.display='block';
+    document.getElementById('loginInput').value='';
+    setTimeout(()=>e.style.display='none',3000);
   }
 }
-
-function doLogout() {
-  document.getElementById('loginScreen').style.display = 'flex';
-  document.getElementById('adminApp').style.display = 'none';
-  document.getElementById('loginInput').value = '';
-}
-
-// ===== ÉTAT SÉLECTIONNÉ =====
-let selectedStatus = 'fini';
-
-function selectStatus(s) {
-  selectedStatus = s;
-  document.querySelectorAll('.status-btn').forEach(b => b.classList.remove('selected'));
-  document.getElementById('st-' + s).classList.add('selected');
+function doLogout(){
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('adminApp').style.display='none';
+  document.getElementById('loginInput').value='';
 }
 
 // ===== TOAST =====
-function showToast(msg, type = 'success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'show ' + type;
-  setTimeout(() => t.className = '', 3000);
+function showToast(msg,type='success'){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='show '+type;
+  setTimeout(()=>t.className='',3000);
 }
 
-// ===== DONNÉES =====
-let awfData = {
-  prochainMatch: { date: 'Dimanche 23 Mars 2025', heure: '16h00', lieu: 'Terrain de Ahala Zamden' },
-  resultats: [
-    { date: 'Dim. 16 Mars 2025', vertScore: 2, rougeScore: 1, status: 'fini' },
-    { date: 'Dim. 09 Mars 2025', vertScore: 0, rougeScore: 3, status: 'fini' },
-    { date: 'Dim. 02 Mars 2025', vertScore: 1, rougeScore: 1, status: 'nul' }
+// ===== DATA =====
+let awfData={
+  prochainMatch:{date:'Dimanche 30 Mars 2025',heure:'16h00',lieu:'Terrain de Ahala Zamden'},
+  resultats:[
+    {date:'Dim. 16 Mars 2025',vertScore:2,rougeScore:1,status:'fini',buteursVert:['Martial'],buteursRouge:['Junior'],passeursVert:[],passeursRouge:[]},
+    {date:'Dim. 09 Mars 2025',vertScore:0,rougeScore:3,status:'fini',buteursVert:[],buteursRouge:['Cédric','Cédric','Alex'],passeursVert:[],passeursRouge:['Martin']},
+    {date:'Dim. 02 Mars 2025',vertScore:1,rougeScore:1,status:'nul',buteursVert:['Patrick'],buteursRouge:['Kevin'],passeursVert:[],passeursRouge:[]}
   ],
-  calendrier: [
-    { date: 'Dim. 23 Mars 2025', heure: '16h00' },
-    { date: 'Dim. 30 Mars 2025', heure: '16h00' }
+  calendrier:[
+    {date:'Dim. 30 Mars 2025',heure:'16h00'},
+    {date:'Dim. 06 Avr. 2025',heure:'16h00'}
   ]
 };
 
-function loadAll() {
-  const saved = localStorage.getItem('awfData');
-  if (saved) awfData = JSON.parse(saved);
+function loadAll(){
+  const s=localStorage.getItem('awfData');
+  if(s){ try{ awfData=JSON.parse(s); }catch(e){} }
   populateProchainMatch();
   renderResults();
   renderCalendar();
 }
-
-function saveToStorage() {
-  localStorage.setItem('awfData', JSON.stringify(awfData));
-  // Déclenche mise à jour sur la même page/onglet
-  window.dispatchEvent(new CustomEvent('awfDataUpdated', { detail: awfData }));
+function saveToStorage(){
+  localStorage.setItem('awfData',JSON.stringify(awfData));
+  window.dispatchEvent(new CustomEvent('awfDataUpdated',{detail:awfData}));
 }
 
 // ===== PROCHAIN MATCH =====
-function populateProchainMatch() {
-  document.getElementById('pm-date').value = awfData.prochainMatch.date;
-  document.getElementById('pm-heure').value = awfData.prochainMatch.heure;
-  document.getElementById('pm-lieu').value = awfData.prochainMatch.lieu;
+function populateProchainMatch(){
+  document.getElementById('pm-date').value=awfData.prochainMatch.date;
+  document.getElementById('pm-heure').value=awfData.prochainMatch.heure;
+  document.getElementById('pm-lieu').value=awfData.prochainMatch.lieu;
+}
+function saveProchainMatch(){
+  const d=document.getElementById('pm-date').value.trim();
+  const h=document.getElementById('pm-heure').value.trim();
+  const l=document.getElementById('pm-lieu').value.trim();
+  if(!d||!h){showToast('⚠️ Renseignez la date et l\'heure','error-t');return;}
+  awfData.prochainMatch={date:d,heure:h,lieu:l};
+  saveToStorage(); showToast('✅ Prochain match mis à jour !');
 }
 
-function saveProchainMatch() {
-  const date = document.getElementById('pm-date').value.trim();
-  const heure = document.getElementById('pm-heure').value.trim();
-  const lieu = document.getElementById('pm-lieu').value.trim();
-  if (!date || !heure) { showToast('⚠️ Renseignez au moins la date et l\'heure', 'error'); return; }
-  awfData.prochainMatch = { date, heure, lieu };
-  saveToStorage();
-  showToast('✅ Prochain match mis à jour !');
+// ===== STATUS =====
+let selectedStatus='fini';
+function selectStatus(s){
+  selectedStatus=s;
+  document.querySelectorAll('.status-btn:not([id^="edit"])').forEach(b=>b.classList.remove('selected'));
+  const el=document.getElementById('st-'+s);
+  if(el)el.classList.add('selected');
+}
+
+// ===== CHIPS (ajout résultat) =====
+const newChips={
+  'but-vert':[],'but-rouge':[],'pass-vert':[],'pass-rouge':[]
+};
+function addChip(key){
+  const inp=document.getElementById('inp-'+key);
+  const name=inp.value.trim();
+  if(!name)return;
+  newChips[key].push(name);
+  renderChips(key); inp.value=''; inp.focus();
+}
+function removeChip(key,i){
+  newChips[key].splice(i,1); renderChips(key);
+}
+function renderChips(key){
+  const area=document.getElementById('chips-'+key);
+  const isPasseur=key.startsWith('pass');
+  area.innerHTML=newChips[key].map((n,i)=>
+    `<span class="chip${isPasseur?' passeur':''}">${n}<span class="chip-del" onclick="removeChip('${key}',${i})">✕</span></span>`
+  ).join('');
+}
+function resetNewChips(){
+  Object.keys(newChips).forEach(k=>newChips[k]=[]);
+  ['but-vert','but-rouge','pass-vert','pass-rouge'].forEach(k=>renderChips(k));
 }
 
 // ===== RÉSULTATS =====
-function addResult() {
-  const date = document.getElementById('res-date').value.trim();
-  const vScore = parseInt(document.getElementById('score-vert').value);
-  const rScore = parseInt(document.getElementById('score-rouge').value);
-  if (!date) { showToast('⚠️ Entrez la date du match', 'error'); return; }
-
-  // Détecter automatiquement le statut si scores égaux
-  let status = selectedStatus;
-  if (vScore === rScore) status = 'nul';
-
-  awfData.resultats.unshift({ date, vertScore: vScore, rougeScore: rScore, status });
-  // Garder max 10 résultats
-  if (awfData.resultats.length > 10) awfData.resultats = awfData.resultats.slice(0, 10);
+function addResult(){
+  const date=document.getElementById('res-date').value.trim();
+  const vS=parseInt(document.getElementById('score-vert').value)||0;
+  const rS=parseInt(document.getElementById('score-rouge').value)||0;
+  if(!date){showToast('⚠️ Entrez la date du match','error-t');return;}
+  let status=selectedStatus;
+  if(vS===rS)status='nul';
+  awfData.resultats.unshift({
+    date,vertScore:vS,rougeScore:rS,status,
+    buteursVert:[...newChips['but-vert']],buteursRouge:[...newChips['but-rouge']],
+    passeursVert:[...newChips['pass-vert']],passeursRouge:[...newChips['pass-rouge']]
+  });
+  if(awfData.resultats.length>15)awfData.resultats=awfData.resultats.slice(0,15);
   renderResults();
-  // Reset
-  document.getElementById('res-date').value = '';
-  document.getElementById('score-vert').value = '0';
-  document.getElementById('score-rouge').value = '0';
+  document.getElementById('res-date').value='';
+  document.getElementById('score-vert').value='0';
+  document.getElementById('score-rouge').value='0';
+  resetNewChips();
+  selectStatus('fini');
   showToast('➕ Résultat ajouté — cliquez "Publier" pour sauvegarder');
 }
-
-function deleteResult(i) {
-  awfData.resultats.splice(i, 1);
-  renderResults();
+function deleteResult(i){
+  if(!confirm('Supprimer ce résultat ?'))return;
+  awfData.resultats.splice(i,1); renderResults();
 }
-
-function renderResults() {
-  const list = document.getElementById('resultsList');
-  if (!awfData.resultats.length) {
-    list.innerHTML = '<p style="color:var(--gray);font-size:0.88rem;text-align:center;padding:1rem;">Aucun résultat enregistré.</p>';
+function toggleResultBody(i){
+  const el=document.getElementById('result-body-'+i);
+  if(el)el.classList.toggle('open');
+}
+function renderResults(){
+  const list=document.getElementById('resultsList');
+  if(!awfData.resultats.length){
+    list.innerHTML='<p style="color:var(--gray);font-size:0.88rem;text-align:center;padding:1rem;">Aucun résultat enregistré.</p>';
     return;
   }
-  list.innerHTML = awfData.resultats.map((r, i) => `
+  list.innerHTML=awfData.resultats.map((r,i)=>{
+    const vW=r.vertScore>r.rougeScore;
+    const rW=r.rougeScore>r.vertScore;
+    const winner=r.status==='nul'?'⬛ Nul':(vW?'🟢 Verts gagnent':'🔴 Rouges gagnent');
+    const bv=r.buteursVert&&r.buteursVert.length?r.buteursVert.join(', '):'<em>—</em>';
+    const br=r.buteursRouge&&r.buteursRouge.length?r.buteursRouge.join(', '):'<em>—</em>';
+    const pv=r.passeursVert&&r.passeursVert.length?r.passeursVert.join(', '):'<em>—</em>';
+    const pr=r.passeursRouge&&r.passeursRouge.length?r.passeursRouge.join(', '):'<em>—</em>';
+    return `
     <div class="result-item">
-      <div class="result-item-info">
+      <div class="result-item-header" onclick="toggleResultBody(${i})">
         <span class="result-date-tag">${r.date}</span>
         <div class="result-score-display">
           <span class="dot vert"></span>
           <span>${r.vertScore} — ${r.rougeScore}</span>
           <span class="dot rouge"></span>
         </div>
-        <span class="result-status-tag ${r.status}">
-          ${r.status === 'fini' ? (r.vertScore > r.rougeScore ? '🟢 Verts' : r.rougeScore > r.vertScore ? '🔴 Rouges' : '') + ' gagnent' : '⬛ Nul'}
-        </span>
+        <span class="result-status-tag ${r.status}">${winner}</span>
+        <span class="result-expand">▼ détails</span>
+        <button class="btn-delete" onclick="event.stopPropagation();deleteResult(${i})">🗑</button>
       </div>
-      <button class="btn-delete" onclick="deleteResult(${i})" title="Supprimer">🗑</button>
-    </div>
-  `).join('');
+      <div class="result-item-body" id="result-body-${i}">
+        <div class="result-stats-row">
+          <div class="stat-group"><div class="stat-group-label vert">⚽ Buteurs Verts</div><div class="stat-names">${bv}</div></div>
+          <div class="stat-group"><div class="stat-group-label rouge">⚽ Buteurs Rouges</div><div class="stat-names">${br}</div></div>
+          <div class="stat-group"><div class="stat-group-label pass">🎯 Passeurs Verts</div><div class="stat-names">${pv}</div></div>
+          <div class="stat-group"><div class="stat-group-label pass">🎯 Passeurs Rouges</div><div class="stat-names">${pr}</div></div>
+        </div>
+        <button class="btn-edit-result" onclick="openEditModal(${i})">✏️ Modifier ce résultat</button>
+      </div>
+    </div>`;
+  }).join('');
 }
+function saveResults(){saveToStorage();showToast('✅ Résultats publiés sur le site !');}
 
-function saveResults() {
-  saveToStorage();
-  showToast('✅ Résultats publiés sur le site !');
+// ===== MODAL ÉDITION =====
+let editIndex=-1;
+let editStatus='fini';
+const editChips={
+  'but-vert':[],'but-rouge':[],'pass-vert':[],'pass-rouge':[]
+};
+function openEditModal(i){
+  editIndex=i;
+  const r=awfData.resultats[i];
+  document.getElementById('edit-date').value=r.date||'';
+  document.getElementById('edit-vert').value=r.vertScore||0;
+  document.getElementById('edit-rouge').value=r.rougeScore||0;
+  editStatus=r.status||'fini';
+  selectEditStatus(editStatus);
+  editChips['but-vert']=[...(r.buteursVert||[])];
+  editChips['but-rouge']=[...(r.buteursRouge||[])];
+  editChips['pass-vert']=[...(r.passeursVert||[])];
+  editChips['pass-rouge']=[...(r.passeursRouge||[])];
+  ['but-vert','but-rouge','pass-vert','pass-rouge'].forEach(k=>renderEditChips(k));
+  document.getElementById('editModal').classList.add('open');
 }
+function closeModal(){
+  document.getElementById('editModal').classList.remove('open');
+  editIndex=-1;
+}
+function selectEditStatus(s){
+  editStatus=s;
+  ['fini','nul'].forEach(x=>{
+    const el=document.getElementById('edit-st-'+x);
+    if(el)el.classList.remove('selected');
+  });
+  const el=document.getElementById('edit-st-'+s);
+  if(el)el.classList.add('selected');
+}
+function addEditChip(key){
+  const inp=document.getElementById('edit-inp-'+key);
+  const name=inp.value.trim();
+  if(!name)return;
+  editChips[key].push(name);
+  renderEditChips(key); inp.value=''; inp.focus();
+}
+function removeEditChip(key,i){editChips[key].splice(i,1);renderEditChips(key);}
+function renderEditChips(key){
+  const area=document.getElementById('edit-chips-'+key);
+  const isPasseur=key.startsWith('pass');
+  area.innerHTML=editChips[key].map((n,i)=>
+    `<span class="chip${isPasseur?' passeur':''}">${n}<span class="chip-del" onclick="removeEditChip('${key}',${i})">✕</span></span>`
+  ).join('');
+}
+function saveEditResult(){
+  if(editIndex<0)return;
+  const vS=parseInt(document.getElementById('edit-vert').value)||0;
+  const rS=parseInt(document.getElementById('edit-rouge').value)||0;
+  let status=editStatus;
+  if(vS===rS)status='nul';
+  awfData.resultats[editIndex]={
+    date:document.getElementById('edit-date').value.trim(),
+    vertScore:vS,rougeScore:rS,status,
+    buteursVert:[...editChips['but-vert']],buteursRouge:[...editChips['but-rouge']],
+    passeursVert:[...editChips['pass-vert']],passeursRouge:[...editChips['pass-rouge']]
+  };
+  renderResults();
+  saveToStorage();
+  closeModal();
+  showToast('✅ Résultat modifié et publié !');
+}
+// Close modal on overlay click
+document.getElementById('editModal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
 
 // ===== CALENDRIER =====
-function addCalendarEntry() {
-  awfData.calendrier.push({ date: '', heure: '16h00' });
-  renderCalendar();
-}
-
-function removeCalendarEntry(i) {
-  awfData.calendrier.splice(i, 1);
-  renderCalendar();
-}
-
-function updateCalendarEntry(i, field, val) {
-  awfData.calendrier[i][field] = val;
-}
-
-function renderCalendar() {
-  const list = document.getElementById('calendarList');
-  if (!awfData.calendrier.length) {
-    list.innerHTML = '<p style="color:var(--gray);font-size:0.88rem;margin-bottom:1rem;">Aucun match à venir. Cliquez ➕ pour en ajouter.</p>';
+function addCalendarEntry(){awfData.calendrier.push({date:'',heure:'16h00'});renderCalendar();}
+function removeCalendarEntry(i){awfData.calendrier.splice(i,1);renderCalendar();}
+function updateCalendarEntry(i,field,val){awfData.calendrier[i][field]=val;}
+function renderCalendar(){
+  const list=document.getElementById('calendarList');
+  if(!awfData.calendrier.length){
+    list.innerHTML='<p style="color:var(--gray);font-size:0.88rem;margin-bottom:1rem;">Aucun match à venir. Cliquez ➕ pour en ajouter.</p>';
     return;
   }
-  list.innerHTML = awfData.calendrier.map((c, i) => `
-    <div class="result-item" style="margin-bottom:0.75rem;">
-      <div class="result-item-info" style="flex-wrap:wrap;gap:0.75rem;flex:1;">
-        <div style="display:flex;flex-direction:column;gap:0.3rem;flex:1;min-width:180px;">
-          <label style="font-family:var(--font-c);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);font-weight:700;">📅 Date</label>
-          <input
-            type="text"
-            value="${c.date}"
-            placeholder="ex: Dim. 30 Mars 2025"
-            oninput="updateCalendarEntry(${i},'date',this.value)"
-            style="background:white;border:1.5px solid var(--gray-light);border-radius:8px;padding:0.5rem 0.75rem;font-family:var(--font-b);font-size:0.9rem;outline:none;"
-          />
-        </div>
-        <div style="display:flex;flex-direction:column;gap:0.3rem;width:100px;">
-          <label style="font-family:var(--font-c);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);font-weight:700;">⏰ Heure</label>
-          <input
-            type="text"
-            value="${c.heure}"
-            placeholder="16h00"
-            oninput="updateCalendarEntry(${i},'heure',this.value)"
-            style="background:white;border:1.5px solid var(--gray-light);border-radius:8px;padding:0.5rem 0.75rem;font-family:var(--font-b);font-size:0.9rem;outline:none;"
-          />
-        </div>
+  list.innerHTML=awfData.calendrier.map((c,i)=>`
+    <div class="cal-entry">
+      <div style="display:flex;flex-direction:column;gap:0.25rem;flex:1;min-width:160px;">
+        <label style="font-family:var(--font-c);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);font-weight:700;">📅 Date</label>
+        <input class="cal-input wide" type="text" value="${c.date}" placeholder="ex: Dim. 30 Mars 2025" oninput="updateCalendarEntry(${i},'date',this.value)"/>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.25rem;">
+        <label style="font-family:var(--font-c);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);font-weight:700;">⏰ Heure</label>
+        <input class="cal-input short" type="text" value="${c.heure}" placeholder="16h00" oninput="updateCalendarEntry(${i},'heure',this.value)"/>
       </div>
       <button class="btn-delete" onclick="removeCalendarEntry(${i})" title="Supprimer">🗑</button>
     </div>
   `).join('');
 }
-
-function saveCalendar() {
-  saveToStorage();
-  showToast('✅ Calendrier enregistré !');
-}
+function saveCalendar(){saveToStorage();showToast('✅ Calendrier enregistré !');}
 </script>
 </body>
 </html>

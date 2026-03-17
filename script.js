@@ -118,6 +118,21 @@ function loadAdminData() {
           const rWin = r.rougeScore > r.vertScore;
           const statusClass = r.status === 'nul' ? 'nul' : 'fini';
           const statusText = r.status === 'nul' ? '⬛ Match nul' : '✔ Terminé';
+
+          // Buteurs & passeurs
+          const bv = r.buteursVert && r.buteursVert.length ? r.buteursVert.join(', ') : null;
+          const br = r.buteursRouge && r.buteursRouge.length ? r.buteursRouge.join(', ') : null;
+          const pv = r.passeursVert && r.passeursVert.length ? r.passeursVert.join(', ') : null;
+          const pr = r.passeursRouge && r.passeursRouge.length ? r.passeursRouge.join(', ') : null;
+
+          const statsRow = (bv || br || pv || pr) ? `
+            <div class="match-stats">
+              ${bv ? `<span class="ms-item vert">⚽ ${bv}</span>` : ''}
+              ${br ? `<span class="ms-item rouge">⚽ ${br}</span>` : ''}
+              ${pv ? `<span class="ms-item pass">🎯 ${pv}</span>` : ''}
+              ${pr ? `<span class="ms-item pass">🎯 ${pr}</span>` : ''}
+            </div>` : '';
+
           return `
           <div class="match-card result">
             <span class="match-date">${r.date}</span>
@@ -133,6 +148,7 @@ function loadAdminData() {
               </div>
             </div>
             <span class="match-status ${statusClass}">${statusText}</span>
+            ${statsRow}
           </div>`;
         }).join('');
       }
