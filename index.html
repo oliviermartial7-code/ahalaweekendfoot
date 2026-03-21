@@ -646,14 +646,46 @@
 
       <div class="comm-content active" id="comm-activites">
         <div class="comm-card">
-          <div class="comm-visual orange-bg">
-            <span class="comm-big-icon">🎉</span>
-          </div>
+          <!-- Photo de couverture cliquable → diaporama Cloudinary -->
+          <a href="#" class="comm-cover-link" onclick="openSlideshow();return false;" title="Voir toutes les photos">
+            <div class="comm-cover-wrap">
+              <img
+                src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_600,c_fill,g_auto/v1774077801/WhatsApp_Image_2026-03-21_at_8.16.14_AM_3_du8pml.jpg"
+                alt="Événements communautaires AWF — Ahala Zamden"
+                class="comm-cover-img"
+                loading="lazy"
+              />
+              <div class="comm-cover-overlay">
+                <span class="comm-cover-icon">🖼️</span>
+                <span class="comm-cover-label">Voir toutes les photos</span>
+              </div>
+            </div>
+          </a>
           <div class="comm-text">
-            <h3>Événements sportifs & culturels</h3>
-            <p>L'association organise des <strong>rencontres dominicales régulières</strong> (Verts vs Rouges), des tournois spéciaux, des manifestations socio-culturelles et des célébrations de victoires qui rassemblent toute la communauté du quartier Ahala.</p>
-            <p>Chaque dimanche est une occasion de renforcer les liens, de s'amuser et de promouvoir les valeurs sportives dans le respect et la fraternité.</p>
-            <a href="https://www.facebook.com/share/1CoajaYNa3/" target="_blank" class="btn-primary">Voir les événements sur Facebook ↗</a>
+            <h3>Aspect social, événements & autres</h3>
+            <p>Organisation d'<strong>événements communautaires</strong>, de <strong>rencontres sportives</strong> et bien d'autres activités qui renforcent les liens entre les membres du quartier Ahala Zamden et au-delà.</p>
+            <p>Chaque dimanche est une occasion unique de se retrouver, de partager et de promouvoir les valeurs de fraternité, de discipline et de solidarité qui fondent AWF depuis 2021.</p>
+            <p class="voir-plus-fb">
+              <a href="https://www.facebook.com/share/1CoajaYNa3/" target="_blank" rel="noopener">
+                📸 Voir plus sur Facebook ↗
+              </a>
+            </p>
+            <a href="https://www.facebook.com/share/1CoajaYNa3/" target="_blank" class="btn-primary">Suivre AWF sur Facebook ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIAPORAMA LIGHTBOX -->
+      <div class="slideshow-overlay" id="slideshowOverlay" onclick="closeSlideshow()">
+        <div class="slideshow-box" onclick="event.stopPropagation()">
+          <button class="slide-close" onclick="closeSlideshow()">✕</button>
+          <button class="slide-nav prev" onclick="prevSlide()">‹</button>
+          <button class="slide-nav next" onclick="nextSlide()">›</button>
+          <div class="slide-counter" id="slideCounter">1 / 3</div>
+          <div class="slides-wrap" id="slidesWrap">
+            <img class="slide-img active" src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_900/v1774077801/WhatsApp_Image_2026-03-21_at_8.16.14_AM_3_du8pml.jpg" alt="Événements AWF 1" />
+            <img class="slide-img" src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_900/v1773712014/IMG_5893_ec4qe5.jpg" alt="Rencontre dominicale AWF" />
+            <img class="slide-img" src="https://res.cloudinary.com/dejyxmgcn/image/upload/f_auto,q_auto,w_900/v1773712026/IMG_5896_uylu5j.jpg" alt="Match du dimanche AWF" />
           </div>
         </div>
       </div>
@@ -830,7 +862,6 @@
     <div class="footer-bottom">
       <span>© 2026 Ahala Weekend Football (AWF) · Tous droits réservés</span>
       <span>Fait avec ⚽ à Ahala Zamden, Yaoundé</span>
-      <a href="admin.html" class="admin-link" title="Espace administration">⚙️ Admin</a>
     </div>
   </footer>
 
@@ -841,6 +872,41 @@
     </svg>
   </a>
 
+  <!-- ===== BOUTON ADMIN FLOTTANT ===== -->
+  <a href="admin.html" class="admin-float-btn" title="Espace administration AWF">
+    ⚙️ Admin
+  </a>
+
   <script src="script.js"></script>
+  <script>
+    // Slideshow
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide-img');
+
+    function openSlideshow() {
+      document.getElementById('slideshowOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showSlide(0);
+    }
+    function closeSlideshow() {
+      document.getElementById('slideshowOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showSlide(n) {
+      slides.forEach(s => s.classList.remove('active'));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      document.getElementById('slideCounter').textContent = (currentSlide + 1) + ' / ' + slides.length;
+    }
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('slideshowOverlay').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'Escape') closeSlideshow();
+    });
+  </script>
 </body>
 </html>
